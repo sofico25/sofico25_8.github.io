@@ -1,22 +1,74 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор стоимости товара</title>
-    <script src="java.js" defer></script>
+    <title>Форма обратной связи</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="gallery-container">
-        <div class="gallery-wrapper">
-            <button class="arrow-left" aria-label="Предыдущий слайд">←</button>
-            <div class="gallery-slider"></div>
-            <button class="arrow-right">→</button>
-        </div>
-        <div class="pager">
-            <span id="current-page">1</span> / <span id="total-pages">3</span>
+    <div class="container">
+        <header>
+            <h1>Форма обратной связи</h1>
+            <p class="description">Нажмите на кнопку ниже, чтобы открыть форму обратной связи. Все данные будут сохранены локально и отправлены на сервер после подтверждения.</p>
+            <button class="open-form-btn" id="openFormBtn">Открыть форму обратной связи</button>
+        </header>
+    </div>
+
+    
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Форма обратной связи</h2>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="message success" id="successMessage">
+                    Сообщение успешно отправлено!
+                </div>
+                <div class="message error" id="errorMessage">
+                    Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже.
+                </div>
+                
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="fullName">ФИО *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization">Организация</label>
+                        <input type="text" id="organization" name="organization">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Сообщение *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+                        <label for="privacyPolicy">Я согласен с <a href="#">политикой обработки персональных данных</a> *</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">Отправить</button>
+                </form>
+            </div>
         </div>
     </div>
+
+    <script src="java.js"></script>
 </body>
 </html>
